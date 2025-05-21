@@ -1,5 +1,6 @@
 package com.generation.lojadegames.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -20,7 +21,7 @@ public class Categoria {
         private String titulo;
 
         @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade =  CascadeType.REMOVE)
-        @JsonIgnoreProperties("categoria")
+        @JsonIgnore
         private List<Produto> produtos;
 
     public Long getId() {
